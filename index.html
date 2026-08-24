@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For Vivek ❤️</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at 50% 45%, #17122b 0%, #090811 45%, #020204 100%);
+            color: white;
+        }
+
+
+        /* =========================
+           STAR / PARTICLE BACKGROUND
+        ========================== */
+
+        .stars {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        .star:nth-child(1) { left: 10%; top: 15%; animation-delay: 0s; }
+        .star:nth-child(2) { left: 20%; top: 70%; animation-delay: .7s; }
+        .star:nth-child(3) { left: 32%; top: 25%; animation-delay: 1.4s; }
+        .star:nth-child(4) { left: 45%; top: 12%; animation-delay: .3s; }
+        .star:nth-child(5) { left: 57%; top: 78%; animation-delay: 1.8s; }
+        .star:nth-child(6) { left: 70%; top: 22%; animation-delay: .9s; }
+        .star:nth-child(7) { left: 82%; top: 65%; animation-delay: 2s; }
+        .star:nth-child(8) { left: 92%; top: 32%; animation-delay: 1.1s; }
+        .star:nth-child(9) { left: 14%; top: 48%; animation-delay: 2.3s; }
+        .star:nth-child(10) { left: 76%; top: 48%; animation-delay: .4s; }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: .15;
+                transform: scale(.7);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+
+
+        /* =========================
+           WEB
+        ========================== */
+
+        .web {
+            position: fixed;
+            width: 420px;
+            height: 420px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            opacity: .13;
+            pointer-events: none;
+        }
+
+        .web-circle {
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(255,255,255,.35);
+            border-radius: 50%;
+        }
+
+        .web-circle:nth-child(1) {
+            transform: scale(.25);
+        }
+
+        .web-circle:nth-child(2) {
+            transform: scale(.48);
+        }
+
+        .web-circle:nth-child(3) {
+            transform: scale(.70);
+        }
+
+        .web-circle:nth-child(4) {
+            transform: scale(.90);
+        }
+
+        .web-line {
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            background: rgba(255,255,255,.28);
+            transform-origin: center;
+        }
+
+        .web-line:nth-child(5) { transform: rotate(0deg); }
+        .web-line:nth-child(6) { transform: rotate(30deg); }
+        .web-line:nth-child(7) { transform: rotate(60deg); }
+        .web-line:nth-child(8) { transform: rotate(90deg); }
+        .web-line:nth-child(9) { transform: rotate(120deg); }
+        .web-line:nth-child(10) { transform: rotate(150deg); }
+
+        .web {
+            animation: webPulse 6s infinite ease-in-out;
+        }
+
+        @keyframes webPulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(.95);
+                opacity: .09;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.04);
+                opacity: .2;
+            }
+        }
+
+
+        /* =========================
+           MAIN SCREEN
+        ========================== */
+
+        .screen {
+            position: relative;
+            z-index: 5;
+
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            transition:
+                opacity 1.2s ease,
+                transform 1.2s ease;
+        }
+
+        .content {
+            width: min(90%, 500px);
+            animation: appear 2s ease forwards;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =========================
+           SMALL INTRO TEXT
+        ========================== */
+
+        .small-text {
+            font-size: 13px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.6);
+
+            margin-bottom: 22px;
+
+            animation: fadeText 2s ease forwards;
+        }
+
+
+        /* =========================
+           TITLE
+        ========================== */
+
+        .title {
+            font-size: clamp(38px, 9vw, 70px);
+            font-weight: normal;
+            letter-spacing: 3px;
+
+            margin-bottom: 12px;
+
+            background: linear-gradient(
+                120deg,
+                #ffffff,
+                #ffb8d2,
+                #ffffff
+            );
+
+            background-size: 200% auto;
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation:
+                titleGlow 4s infinite linear;
+        }
+
+        @keyframes titleGlow {
+            0% {
+                background-position: 0% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+
+        .subtitle {
+            color: rgba(255,255,255,.7);
+            font-size: 16px;
+            line-height: 1.7;
+
+            margin-bottom: 35px;
+        }
+
+
+        /* =========================
+           HEART
+        ========================== */
+
+        .heart {
+            width: 52px;
+            height: 52px;
+
+            margin: 0 auto 25px;
+
+            position: relative;
+
+            transform: rotate(-45deg);
+
+            background: #ff3d73;
+
+            box-shadow:
+                0 0 20px rgba(255,61,115,.5),
+                0 0 50px rgba(255,61,115,.25);
+
+            animation: heartbeat 1.8s infinite ease-in-out;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+
+            width: 52px;
+            height: 52px;
+
+            background: #ff3d73;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -26px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 26px;
+            top: 0;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: rotate(-45deg) scale(1);
+            }
+
+            10% {
+                transform: rotate(-45deg) scale(1.12);
+            }
+
+            20% {
+                transform: rotate(-45deg) scale(1);
+            }
+
+            30% {
+                transform: rotate(-45deg) scale(1.12);
+            }
+
+            40% {
+                transform: rotate(-45deg) scale(1);
+            }
+        }
+
+
+        /* =========================
+           PASSCODE AREA
+        ========================== */
+
+        .instruction {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.5);
+
+            margin-bottom: 15px;
+        }
+
+        .code-input {
+            width: 180px;
+
+            padding: 14px 10px;
+
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,.5);
+
+            outline: none;
+
+            background: transparent;
+
+            color: white;
+
+            text-align: center;
+
+            font-size: 24px;
+            letter-spacing: 12px;
+
+            transition: border-color .3s ease;
+        }
+
+        .code-input:focus {
+            border-bottom-color: #ff5d8f;
+        }
+
+        .code-input::placeholder {
+            color: rgba(255,255,255,.2);
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================== */
+
+        .unlock-btn {
+            display: block;
+
+            margin: 25px auto 0;
+
+            padding: 13px 30px;
+
+            border: 1px solid rgba(255,255,255,.3);
+
+            border-radius: 30px;
+
+            background: rgba(255,255,255,.04);
+
+            color: white;
+
+            font-size: 13px;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            transition:
+                transform .3s ease,
+                background .3s ease,
+                box-shadow .3s ease;
+        }
+
+        .unlock-btn:hover {
+            transform: translateY(-3px);
+
+            background: rgba(255,70,120,.15);
+
+            box-shadow:
+                0 0 25px rgba(255,70,120,.25);
+        }
+
+
+        /* =========================
+           HINT
+        ========================== */
+
+        .hint {
+            margin-top: 25px;
+
+            color: rgba(255,255,255,.35);
+
+            font-size: 12px;
+
+            font-style: italic;
+        }
+
+
+        /* =========================
+           ERROR
+        ========================== */
+
+        .error {
+            height: 20px;
+
+            margin-top: 12px;
+
+            font-size: 12px;
+
+            color: #ff6f9d;
+
+            opacity: 0;
+
+            transition: opacity .3s ease;
+        }
+
+        .error.show {
+            opacity: 1;
+        }
+
+        .shake {
+            animation: shake .45s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+
+            20% {
+                transform: translateX(-10px);
+            }
+
+            40% {
+                transform: translateX(10px);
+            }
+
+            60% {
+                transform: translateX(-7px);
+            }
+
+            80% {
+                transform: translateX(7px);
+            }
+        }
+
+
+        /* =========================
+           FLOATING HEARTS
+        ========================== */
+
+        .floating-heart {
+            position: fixed;
+
+            bottom: -30px;
+
+            color: #ff5c91;
+
+            font-size: 15px;
+
+            opacity: .35;
+
+            pointer-events: none;
+
+            animation: floatHeart linear infinite;
+        }
+
+        @keyframes floatHeart {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(0deg)
+                    scale(.7);
+
+                opacity: 0;
+            }
+
+            15% {
+                opacity: .5;
+            }
+
+            80% {
+                opacity: .3;
+            }
+
+            100% {
+                transform:
+                    translateY(-110vh)
+                    rotate(30deg)
+                    scale(1.2);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================
+           SUCCESS OVERLAY
+        ========================== */
+
+        .success {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 20;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            background: #020204;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition: opacity 1s ease;
+        }
+
+        .success.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .success-content {
+            transform: scale(.7);
+
+            transition: transform 1.2s cubic-bezier(.17,.67,.3,1.2);
+        }
+
+        .success.active .success-content {
+            transform: scale(1);
+        }
+
+        .success-heart {
+            font-size: 75px;
+
+            animation:
+                successBeat 1s infinite ease-in-out;
+        }
+
+        @keyframes successBeat {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.25);
+            }
+        }
+
+        .success-title {
+            margin-top: 20px;
+
+            font-size: 32px;
+
+            letter-spacing: 3px;
+        }
+
+        .success-text {
+            margin-top: 15px;
+
+            color: rgba(255,255,255,.6);
+
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           HEART BURST
+        ========================== */
+
+        .burst-heart {
+            position: fixed;
+
+            left: 50%;
+            top: 50%;
+
+            z-index: 30;
+
+            pointer-events: none;
+
+            font-size: 20px;
+
+            animation: burst 1.5s ease-out forwards;
+        }
+
+        @keyframes burst {
+
+            from {
+                transform:
+                    translate(-50%, -50%)
+                    scale(.5);
+
+                opacity: 1;
+            }
+
+            to {
+                transform:
+                    translate(
+                        calc(-50% + var(--x)),
+                        calc(-50% + var(--y))
+                    )
+                    scale(1.4);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 600px) {
+
+            .web {
+                width: 320px;
+                height: 320px;
+            }
+
+            .small-text {
+                font-size: 10px;
+                letter-spacing: 3px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+            }
+
+            .code-input {
+                width: 160px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- STAR BACKGROUND -->
+
+    <div class="stars">
+
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+
+    </div>
+
+
+    <!-- SPIDER WEB -->
+
+    <div class="web">
+
+        <div class="web-circle"></div>
+        <div class="web-circle"></div>
+        <div class="web-circle"></div>
+        <div class="web-circle"></div>
+
+        <div class="web-line"></div>
+        <div class="web-line"></div>
+        <div class="web-line"></div>
+        <div class="web-line"></div>
+        <div class="web-line"></div>
+        <div class="web-line"></div>
+
+    </div>
+
+
+    <!-- FLOATING HEARTS -->
+
+    <div id="heartContainer"></div>
+
+
+    <!-- MAIN SCREEN -->
+
+    <main class="screen" id="mainScreen">
+
+        <div class="content" id="content">
+
+            <div class="small-text">
+                A little surprise awaits
+            </div>
+
+
+            <div class="heart"></div>
+
+
+            <h1 class="title">
+                Hey, Vivek...
+            </h1>
+
+
+            <p class="subtitle">
+                Someone has prepared something<br>
+                especially for you.
+            </p>
+
+
+            <div class="instruction">
+                Enter the secret code
+            </div>
+
+
+            <input
+                type="password"
+                id="code"
+                class="code-input"
+                maxlength="4"
+                inputmode="numeric"
+                placeholder="••••"
+                autocomplete="off"
+            >
+
+
+            <div
+                id="error"
+                class="error"
+            >
+                That's not it... try again ❤️
+            </div>
+
+
+            <button
+                class="unlock-btn"
+                onclick="unlock()"
+            >
+                🔓 &nbsp; UNLOCK
+            </button>
+
+
+            <div class="hint">
+                Hint: It's something special to us...
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- SUCCESS SCREEN -->
+
+    <section
+        class="success"
+        id="success"
+    >
+
+        <div class="success-content">
+
+            <div class="success-heart">
+                ❤️
+            </div>
+
+            <div class="success-title">
+                ACCESS GRANTED
+            </div>
+
+            <div class="success-text">
+                Welcome, Vivek...
+                <br><br>
+                Your surprise is about to begin.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        /* =========================
+           CHANGE YOUR PASSWORD HERE
+        ========================== */
+
+        const SECRET_CODE = "3008";
+
+
+        /* =========================
+           CREATE FLOATING HEARTS
+        ========================== */
+
+        const heartContainer =
+            document.getElementById("heartContainer");
+
+
+        function createHeart() {
+
+            const heart =
+                document.createElement("div");
+
+            heart.className =
+                "floating-heart";
+
+            heart.innerHTML =
+                Math.random() > .5 ? "♥" : "♡";
+
+            heart.style.left =
+                Math.random() * 100 + "%";
+
+            heart.style.animationDuration =
+                (8 + Math.random() * 8) + "s";
+
+            heart.style.animationDelay =
+                Math.random() * 5 + "s";
+
+            heart.style.fontSize =
+                (10 + Math.random() * 15) + "px";
+
+            heartContainer.appendChild(heart);
+
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, 18000);
+
+        }
+
+
+        setInterval(createHeart, 900);
+
+
+        /* =========================
+           UNLOCK FUNCTION
+        ========================== */
+
+        function unlock() {
+
+            const input =
+                document.getElementById("code");
+
+            const error =
+                document.getElementById("error");
+
+            const content =
+                document.getElementById("content");
+
+            const success =
+                document.getElementById("success");
+
+
+            const enteredCode =
+                input.value.trim();
+
+
+            /* WRONG PASSWORD */
+
+            if (enteredCode !== SECRET_CODE) {
+
+                error.classList.add("show");
+
+                input.classList.remove("shake");
+
+                void input.offsetWidth;
+
+                input.classList.add("shake");
+
+                input.value = "";
+
+                setTimeout(() => {
+
+                    error.classList.remove("show");
+
+                }, 2500);
+
+                return;
+            }
+
+
+            /* CORRECT PASSWORD */
+
+            error.classList.remove("show");
+
+            createHeartBurst();
+
+            document.getElementById("mainScreen")
+                .style.opacity = "0";
+
+            document.getElementById("mainScreen")
+                .style.transform = "scale(1.08)";
+
+
+            setTimeout(() => {
+
+                success.classList.add("active");
+
+            }, 700);
+
+
+            /*
+                Later we will connect this
+                to the actual birthday page.
+            */
+
+        }
+
+
+        /* =========================
+           HEART BURST
+        ========================== */
+
+        function createHeartBurst() {
+
+            const hearts = 28;
+
+            for (let i = 0; i < hearts; i++) {
+
+                const heart =
+                    document.createElement("div");
+
+                heart.className =
+                    "burst-heart";
+
+                heart.innerHTML =
+                    Math.random() > .5
+                    ? "❤️"
+                    : "♡";
+
+
+                const angle =
+                    (Math.PI * 2 / hearts) * i;
+
+
+                const distance =
+                    150 + Math.random() * 250;
+
+
+                heart.style.setProperty(
+                    "--x",
+                    Math.cos(angle) * distance + "px"
+                );
+
+
+                heart.style.setProperty(
+                    "--y",
+                    Math.sin(angle) * distance + "px"
+                );
+
+
+                document.body.appendChild(heart);
+
+
+                setTimeout(() => {
+
+                    heart.remove();
+
+                }, 1600);
+
+            }
+
+        }
+
+
+        /* =========================
+           ENTER KEY
+        ========================== */
+
+        document
+            .getElementById("code")
+            .addEventListener(
+                "keydown",
+                function(event) {
+
+                    if (event.key === "Enter") {
+
+                        unlock();
+
+                    }
+
+                }
+            );
+
+    </script>
+
+</body>
+</html>
