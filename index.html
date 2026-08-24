@@ -1,1014 +1,1650 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>For Vivek ❤️</title>
-
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            font-family: Georgia, "Times New Roman", serif;
-        }
-
-        body {
-            background:
-                radial-gradient(circle at 50% 45%, #17122b 0%, #090811 45%, #020204 100%);
-            color: white;
-        }
-
-
-        /* =========================
-           STAR / PARTICLE BACKGROUND
-        ========================== */
-
-        .stars {
-            position: fixed;
-            inset: 0;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.5;
-            animation: twinkle 3s infinite ease-in-out;
-        }
-
-        .star:nth-child(1) { left: 10%; top: 15%; animation-delay: 0s; }
-        .star:nth-child(2) { left: 20%; top: 70%; animation-delay: .7s; }
-        .star:nth-child(3) { left: 32%; top: 25%; animation-delay: 1.4s; }
-        .star:nth-child(4) { left: 45%; top: 12%; animation-delay: .3s; }
-        .star:nth-child(5) { left: 57%; top: 78%; animation-delay: 1.8s; }
-        .star:nth-child(6) { left: 70%; top: 22%; animation-delay: .9s; }
-        .star:nth-child(7) { left: 82%; top: 65%; animation-delay: 2s; }
-        .star:nth-child(8) { left: 92%; top: 32%; animation-delay: 1.1s; }
-        .star:nth-child(9) { left: 14%; top: 48%; animation-delay: 2.3s; }
-        .star:nth-child(10) { left: 76%; top: 48%; animation-delay: .4s; }
-
-        @keyframes twinkle {
-            0%, 100% {
-                opacity: .15;
-                transform: scale(.7);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scale(1.5);
-            }
-        }
-
-
-        /* =========================
-           WEB
-        ========================== */
-
-        .web {
-            position: fixed;
-            width: 420px;
-            height: 420px;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            opacity: .13;
-            pointer-events: none;
-        }
-
-        .web-circle {
-            position: absolute;
-            inset: 0;
-            border: 1px solid rgba(255,255,255,.35);
-            border-radius: 50%;
-        }
-
-        .web-circle:nth-child(1) {
-            transform: scale(.25);
-        }
-
-        .web-circle:nth-child(2) {
-            transform: scale(.48);
-        }
-
-        .web-circle:nth-child(3) {
-            transform: scale(.70);
-        }
-
-        .web-circle:nth-child(4) {
-            transform: scale(.90);
-        }
-
-        .web-line {
-            position: absolute;
-            width: 1px;
-            height: 100%;
-            left: 50%;
-            top: 0;
-            background: rgba(255,255,255,.28);
-            transform-origin: center;
-        }
-
-        .web-line:nth-child(5) { transform: rotate(0deg); }
-        .web-line:nth-child(6) { transform: rotate(30deg); }
-        .web-line:nth-child(7) { transform: rotate(60deg); }
-        .web-line:nth-child(8) { transform: rotate(90deg); }
-        .web-line:nth-child(9) { transform: rotate(120deg); }
-        .web-line:nth-child(10) { transform: rotate(150deg); }
-
-        .web {
-            animation: webPulse 6s infinite ease-in-out;
-        }
-
-        @keyframes webPulse {
-            0%, 100% {
-                transform: translate(-50%, -50%) scale(.95);
-                opacity: .09;
-            }
-
-            50% {
-                transform: translate(-50%, -50%) scale(1.04);
-                opacity: .2;
-            }
-        }
-
-
-        /* =========================
-           MAIN SCREEN
-        ========================== */
 
-        .screen {
-            position: relative;
-            z-index: 5;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Vivek ❤️</title>
+
+<style>
+
+/* =====================================================
+   BASIC
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050507;
+    color:white;
+    font-family:Georgia,"Times New Roman",serif;
+    overflow-x:hidden;
+}
+
+button{
+    font-family:inherit;
+}
+
+
+/* =====================================================
+   COMMON
+===================================================== */
+
+.scene{
+    min-height:100vh;
+    width:100%;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+.hidden{
+    display:none !important;
+}
+
+.container{
+    width:min(900px,90%);
+    margin:auto;
+    position:relative;
+    z-index:5;
+}
+
+h1{
+    font-size:clamp(45px,9vw,90px);
+    letter-spacing:3px;
+}
+
+h2{
+    font-size:clamp(32px,6vw,60px);
+    margin-bottom:20px;
+}
+
+p{
+    line-height:1.8;
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+    0%,100%{
+        opacity:.15;
+        transform:scale(.7);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.5);
+    }
+}
+
+
+/* =====================================================
+   WEB
+===================================================== */
+
+.web{
+    position:absolute;
+    width:500px;
+    height:500px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    opacity:.15;
+    pointer-events:none;
+}
+
+.webCircle{
+    position:absolute;
+    inset:0;
+    border:1px solid rgba(255,255,255,.4);
+    border-radius:50%;
+}
+
+.webCircle:nth-child(1){
+    transform:scale(.25);
+}
+
+.webCircle:nth-child(2){
+    transform:scale(.5);
+}
+
+.webCircle:nth-child(3){
+    transform:scale(.72);
+}
+
+.webCircle:nth-child(4){
+    transform:scale(.9);
+}
+
+.webLine{
+    position:absolute;
+    width:1px;
+    height:100%;
+    left:50%;
+    top:0;
+    background:rgba(255,255,255,.35);
+}
+
+.webLine:nth-child(5){transform:rotate(0deg);}
+.webLine:nth-child(6){transform:rotate(30deg);}
+.webLine:nth-child(7){transform:rotate(60deg);}
+.webLine:nth-child(8){transform:rotate(90deg);}
+.webLine:nth-child(9){transform:rotate(120deg);}
+.webLine:nth-child(10){transform:rotate(150deg);}
+
+
+/* =====================================================
+   HEART
+===================================================== */
+
+.bigHeart{
+    font-size:75px;
+    animation:heartbeat 1.5s infinite;
+    filter:drop-shadow(0 0 25px #ff477e);
+}
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.2);
+    }
+}
+
+
+/* =====================================================
+   PASSCODE
+===================================================== */
+
+#lockScene{
+    background:
+    radial-gradient(circle at center,#1a1020,#050507 65%);
+}
+
+.smallTitle{
+    text-transform:uppercase;
+    letter-spacing:5px;
+    color:#aaa;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+.mainTitle{
+    background:linear-gradient(120deg,#fff,#ff86aa,#fff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-size:200%;
+    animation:shine 4s linear infinite;
+}
+
+@keyframes shine{
+    to{
+        background-position:200%;
+    }
+}
+
+.subtitle{
+    color:#aaa;
+    margin:20px auto 30px;
+    max-width:500px;
+}
+
+.codeInput{
+    width:180px;
+    background:transparent;
+    border:none;
+    border-bottom:1px solid #777;
+    outline:none;
+    color:white;
+    text-align:center;
+    font-size:25px;
+    letter-spacing:12px;
+    padding:12px;
+}
+
+.codeInput:focus{
+    border-bottom-color:#ff477e;
+}
+
+.unlockButton,
+.nextButton{
+    margin-top:25px;
+    padding:14px 32px;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,.3);
+    background:rgba(255,255,255,.05);
+    color:white;
+    cursor:pointer;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+.unlockButton:hover,
+.nextButton:hover{
+    transform:translateY(-4px);
+    background:rgba(255,60,120,.18);
+    box-shadow:0 0 30px rgba(255,60,120,.25);
+}
+
+.error{
+    height:25px;
+    margin-top:12px;
+    color:#ff6f9d;
+    opacity:0;
+}
+
+.error.show{
+    opacity:1;
+}
+
+.shake{
+    animation:shake .4s;
+}
+
+@keyframes shake{
+    0%,100%{transform:translateX(0);}
+    25%{transform:translateX(-10px);}
+    75%{transform:translateX(10px);}
+}
+
+
+/* =====================================================
+   CINEMATIC INTRO
+===================================================== */
+
+#introScene{
+    background:#020204;
+}
+
+.introText{
+    opacity:0;
+    animation:fadeUp 2s forwards;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.glowingHeart{
+    font-size:90px;
+    animation:heartbeat 1.3s infinite;
+    filter:drop-shadow(0 0 35px #ff316d);
+}
+
+
+/* =====================================================
+   BIRTHDAY
+===================================================== */
+
+#birthdayScene{
+    background:
+    radial-gradient(circle,#21101b,#060609 65%);
+}
+
+.birthdayText{
+    color:#ff6d9b;
+    letter-spacing:5px;
+    font-size:15px;
+    text-transform:uppercase;
+}
+
+.vivekName{
+    color:white;
+    text-shadow:
+    0 0 15px #ff477e,
+    0 0 40px #ff477e;
+}
+
+
+/* =====================================================
+   PHOTOS
+===================================================== */
+
+#memoryScene{
+    background:#08080d;
+    padding:80px 0;
+    min-height:100vh;
+}
+
+.memoryGrid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+    margin-top:40px;
+}
+
+.photoCard{
+    background:#111118;
+    padding:12px;
+    border-radius:5px;
+    box-shadow:0 15px 40px rgba(0,0,0,.5);
+    transform:rotate(-2deg);
+    transition:.5s;
+}
+
+.photoCard:nth-child(even){
+    transform:rotate(2deg);
+}
+
+.photoCard:hover{
+    transform:translateY(-10px) rotate(0deg) scale(1.03);
+}
+
+.photoCard img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    display:block;
+}
+
+.photoCaption{
+    padding:15px 5px 8px;
+    color:#ddd;
+    font-size:14px;
+}
+
+
+/* =====================================================
+   LETTER
+===================================================== */
+
+#letterScene{
+    background:
+    radial-gradient(circle,#18101a,#050507);
+    padding:70px 0;
+}
+
+.envelope{
+    width:260px;
+    height:170px;
+    background:#9b3155;
+    margin:30px auto;
+    position:relative;
+    cursor:pointer;
+    transition:.6s;
+    box-shadow:0 0 40px rgba(255,50,110,.2);
+}
+
+.envelope:before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    border-left:130px solid transparent;
+    border-right:130px solid transparent;
+    border-top:100px solid #c3466b;
+}
+
+.envelope span{
+    position:absolute;
+    width:100%;
+    top:65px;
+    left:0;
+    font-size:30px;
+    z-index:3;
+}
+
+.letter{
+    max-width:650px;
+    margin:30px auto;
+    background:#fff5f7;
+    color:#35151e;
+    padding:40px;
+    line-height:2;
+    border-radius:5px;
+    text-align:left;
+    animation:letterOpen 1s ease;
+}
+
+@keyframes letterOpen{
+    from{
+        opacity:0;
+        transform:translateY(30px) scale(.9);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+
+/* =====================================================
+   REASONS
+===================================================== */
+
+#reasonsScene{
+    background:#07070b;
+    padding:80px 0;
+}
+
+.reasons{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+    margin-top:40px;
+}
+
+.reason{
+    padding:30px 20px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:15px;
+    transition:.4s;
+}
+
+.reason:hover{
+    transform:translateY(-8px);
+    background:rgba(255,60,120,.08);
+}
+
+.reasonIcon{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+
+/* =====================================================
+   BALLOONS
+===================================================== */
+
+#gameScene{
+    background:
+    radial-gradient(circle,#180d18,#050507);
+}
+
+.balloonArea{
+    position:relative;
+    height:400px;
+    max-width:800px;
+    margin:auto;
+}
+
+.balloon{
+    position:absolute;
+    font-size:65px;
+    cursor:pointer;
+    animation:balloonFloat 3s infinite ease-in-out;
+    transition:.3s;
+}
+
+.balloon:hover{
+    transform:scale(1.2);
+}
+
+.balloon.popped{
+    animation:pop .4s forwards;
+}
+
+@keyframes balloonFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-20px);
+    }
+}
+
+@keyframes pop{
+    to{
+        transform:scale(2);
+        opacity:0;
+    }
+}
+
+.hiddenMessage{
+    margin-top:20px;
+    min-height:30px;
+    color:#ff86aa;
+    font-size:18px;
+}
+
+
+/* =====================================================
+   CAKE
+===================================================== */
+
+#cakeScene{
+    background:
+    radial-gradient(circle,#1c0d17,#040406);
+}
+
+.cake{
+    width:280px;
+    height:130px;
+    margin:40px auto;
+    position:relative;
+}
+
+.cakeBottom{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:80px;
+    background:#8f3152;
+    border-radius:10px 10px 20px 20px;
+    box-shadow:0 15px 30px rgba(0,0,0,.4);
+}
+
+.cakeTop{
+    position:absolute;
+    top:25px;
+    width:100%;
+    height:40px;
+    background:#ffadc4;
+    border-radius:50%;
+}
+
+.candle{
+    position:absolute;
+    width:10px;
+    height:45px;
+    background:#fff;
+    bottom:80px;
+    border-radius:5px;
+}
+
+.candle:nth-child(1){left:75px;}
+.candle:nth-child(2){left:135px;}
+.candle:nth-child(3){left:195px;}
+
+.flame{
+    position:absolute;
+    width:14px;
+    height:20px;
+    background:#ffb32e;
+    border-radius:50% 50% 50% 0;
+    transform:rotate(-45deg);
+    top:-20px;
+    left:-2px;
+    animation:flame .7s infinite alternate;
+}
+
+@keyframes flame{
+    to{
+        transform:rotate(-45deg) scale(1.2);
+    }
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+#finalScene{
+    background:
+    radial-gradient(circle,#200d18,#030305);
+}
+
+.finalHeart{
+    font-size:110px;
+    filter:drop-shadow(0 0 50px #ff306b);
+    animation:heartbeat 1.4s infinite;
+}
+
+.finalMessage{
+    max-width:650px;
+    margin:25px auto;
+    color:#ddd;
+    line-height:2;
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+.floatingHeart{
+    position:fixed;
+    bottom:-30px;
+    z-index:2;
+    pointer-events:none;
+    color:#ff477e;
+    opacity:.5;
+    animation:floatHeart linear forwards;
+}
+
+@keyframes floatHeart{
+    from{
+        transform:translateY(0) scale(.7);
+        opacity:0;
+    }
+
+    15%{
+        opacity:.5;
+    }
+
+    to{
+        transform:translateY(-110vh) scale(1.3);
+        opacity:0;
+    }
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+.confetti{
+    position:fixed;
+    width:8px;
+    height:15px;
+    top:-20px;
+    z-index:100;
+    pointer-events:none;
+    animation:fall 3s linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:
+        translateY(110vh)
+        rotate(720deg);
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:600px){
+
+    .web{
+        width:330px;
+        height:330px;
+    }
+
+    .letter{
+        padding:25px;
+        font-size:14px;
+    }
+
+    .balloonArea{
+        height:350px;
+    }
+
+    .balloon{
+        font-size:50px;
+    }
+
+}
+
+</style>
 
-            width: 100%;
-            height: 100%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            text-align: center;
-
-            transition:
-                opacity 1.2s ease,
-                transform 1.2s ease;
-        }
-
-        .content {
-            width: min(90%, 500px);
-            animation: appear 2s ease forwards;
-        }
-
-        @keyframes appear {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-        /* =========================
-           SMALL INTRO TEXT
-        ========================== */
-
-        .small-text {
-            font-size: 13px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,.6);
-
-            margin-bottom: 22px;
-
-            animation: fadeText 2s ease forwards;
-        }
-
-
-        /* =========================
-           TITLE
-        ========================== */
-
-        .title {
-            font-size: clamp(38px, 9vw, 70px);
-            font-weight: normal;
-            letter-spacing: 3px;
-
-            margin-bottom: 12px;
-
-            background: linear-gradient(
-                120deg,
-                #ffffff,
-                #ffb8d2,
-                #ffffff
-            );
-
-            background-size: 200% auto;
-
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-
-            animation:
-                titleGlow 4s infinite linear;
-        }
-
-        @keyframes titleGlow {
-            0% {
-                background-position: 0% center;
-            }
-
-            100% {
-                background-position: 200% center;
-            }
-        }
-
-
-        .subtitle {
-            color: rgba(255,255,255,.7);
-            font-size: 16px;
-            line-height: 1.7;
-
-            margin-bottom: 35px;
-        }
-
-
-        /* =========================
-           HEART
-        ========================== */
-
-        .heart {
-            width: 52px;
-            height: 52px;
-
-            margin: 0 auto 25px;
-
-            position: relative;
-
-            transform: rotate(-45deg);
-
-            background: #ff3d73;
-
-            box-shadow:
-                0 0 20px rgba(255,61,115,.5),
-                0 0 50px rgba(255,61,115,.25);
-
-            animation: heartbeat 1.8s infinite ease-in-out;
-        }
-
-        .heart::before,
-        .heart::after {
-            content: "";
-            position: absolute;
-
-            width: 52px;
-            height: 52px;
-
-            background: #ff3d73;
-            border-radius: 50%;
-        }
-
-        .heart::before {
-            top: -26px;
-            left: 0;
-        }
-
-        .heart::after {
-            left: 26px;
-            top: 0;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: rotate(-45deg) scale(1);
-            }
-
-            10% {
-                transform: rotate(-45deg) scale(1.12);
-            }
-
-            20% {
-                transform: rotate(-45deg) scale(1);
-            }
-
-            30% {
-                transform: rotate(-45deg) scale(1.12);
-            }
-
-            40% {
-                transform: rotate(-45deg) scale(1);
-            }
-        }
-
-
-        /* =========================
-           PASSCODE AREA
-        ========================== */
-
-        .instruction {
-            font-size: 12px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,.5);
-
-            margin-bottom: 15px;
-        }
-
-        .code-input {
-            width: 180px;
-
-            padding: 14px 10px;
-
-            border: none;
-            border-bottom: 1px solid rgba(255,255,255,.5);
-
-            outline: none;
-
-            background: transparent;
-
-            color: white;
-
-            text-align: center;
-
-            font-size: 24px;
-            letter-spacing: 12px;
-
-            transition: border-color .3s ease;
-        }
-
-        .code-input:focus {
-            border-bottom-color: #ff5d8f;
-        }
-
-        .code-input::placeholder {
-            color: rgba(255,255,255,.2);
-        }
-
-
-        /* =========================
-           BUTTON
-        ========================== */
-
-        .unlock-btn {
-            display: block;
-
-            margin: 25px auto 0;
-
-            padding: 13px 30px;
-
-            border: 1px solid rgba(255,255,255,.3);
-
-            border-radius: 30px;
-
-            background: rgba(255,255,255,.04);
-
-            color: white;
-
-            font-size: 13px;
-
-            letter-spacing: 2px;
-
-            cursor: pointer;
-
-            transition:
-                transform .3s ease,
-                background .3s ease,
-                box-shadow .3s ease;
-        }
-
-        .unlock-btn:hover {
-            transform: translateY(-3px);
-
-            background: rgba(255,70,120,.15);
-
-            box-shadow:
-                0 0 25px rgba(255,70,120,.25);
-        }
-
-
-        /* =========================
-           HINT
-        ========================== */
-
-        .hint {
-            margin-top: 25px;
-
-            color: rgba(255,255,255,.35);
-
-            font-size: 12px;
-
-            font-style: italic;
-        }
-
-
-        /* =========================
-           ERROR
-        ========================== */
-
-        .error {
-            height: 20px;
-
-            margin-top: 12px;
-
-            font-size: 12px;
-
-            color: #ff6f9d;
-
-            opacity: 0;
-
-            transition: opacity .3s ease;
-        }
-
-        .error.show {
-            opacity: 1;
-        }
-
-        .shake {
-            animation: shake .45s ease;
-        }
-
-        @keyframes shake {
-            0%, 100% {
-                transform: translateX(0);
-            }
-
-            20% {
-                transform: translateX(-10px);
-            }
-
-            40% {
-                transform: translateX(10px);
-            }
-
-            60% {
-                transform: translateX(-7px);
-            }
-
-            80% {
-                transform: translateX(7px);
-            }
-        }
-
-
-        /* =========================
-           FLOATING HEARTS
-        ========================== */
-
-        .floating-heart {
-            position: fixed;
-
-            bottom: -30px;
-
-            color: #ff5c91;
-
-            font-size: 15px;
-
-            opacity: .35;
-
-            pointer-events: none;
-
-            animation: floatHeart linear infinite;
-        }
-
-        @keyframes floatHeart {
-
-            0% {
-                transform:
-                    translateY(0)
-                    rotate(0deg)
-                    scale(.7);
-
-                opacity: 0;
-            }
-
-            15% {
-                opacity: .5;
-            }
-
-            80% {
-                opacity: .3;
-            }
-
-            100% {
-                transform:
-                    translateY(-110vh)
-                    rotate(30deg)
-                    scale(1.2);
-
-                opacity: 0;
-            }
-        }
-
-
-        /* =========================
-           SUCCESS OVERLAY
-        ========================== */
-
-        .success {
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 20;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            text-align: center;
-
-            background: #020204;
-
-            opacity: 0;
-
-            visibility: hidden;
-
-            transition: opacity 1s ease;
-        }
-
-        .success.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .success-content {
-            transform: scale(.7);
-
-            transition: transform 1.2s cubic-bezier(.17,.67,.3,1.2);
-        }
-
-        .success.active .success-content {
-            transform: scale(1);
-        }
-
-        .success-heart {
-            font-size: 75px;
-
-            animation:
-                successBeat 1s infinite ease-in-out;
-        }
-
-        @keyframes successBeat {
-
-            0%, 100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.25);
-            }
-        }
-
-        .success-title {
-            margin-top: 20px;
-
-            font-size: 32px;
-
-            letter-spacing: 3px;
-        }
-
-        .success-text {
-            margin-top: 15px;
-
-            color: rgba(255,255,255,.6);
-
-            font-size: 15px;
-        }
-
-
-        /* =========================
-           HEART BURST
-        ========================== */
-
-        .burst-heart {
-            position: fixed;
-
-            left: 50%;
-            top: 50%;
-
-            z-index: 30;
-
-            pointer-events: none;
-
-            font-size: 20px;
-
-            animation: burst 1.5s ease-out forwards;
-        }
-
-        @keyframes burst {
-
-            from {
-                transform:
-                    translate(-50%, -50%)
-                    scale(.5);
-
-                opacity: 1;
-            }
-
-            to {
-                transform:
-                    translate(
-                        calc(-50% + var(--x)),
-                        calc(-50% + var(--y))
-                    )
-                    scale(1.4);
-
-                opacity: 0;
-            }
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================== */
-
-        @media (max-width: 600px) {
-
-            .web {
-                width: 320px;
-                height: 320px;
-            }
-
-            .small-text {
-                font-size: 10px;
-                letter-spacing: 3px;
-            }
-
-            .subtitle {
-                font-size: 14px;
-            }
-
-            .code-input {
-                width: 160px;
-            }
-        }
-
-    </style>
 </head>
 
 
 <body>
 
 
-    <!-- STAR BACKGROUND -->
+<!-- =====================================================
+     STARS
+===================================================== -->
 
-    <div class="stars">
+<div class="stars">
 
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
+<span class="star" style="left:10%;top:15%"></span>
+<span class="star" style="left:25%;top:70%"></span>
+<span class="star" style="left:40%;top:20%"></span>
+<span class="star" style="left:55%;top:80%"></span>
+<span class="star" style="left:70%;top:30%"></span>
+<span class="star" style="left:85%;top:65%"></span>
+<span class="star" style="left:90%;top:15%"></span>
+<span class="star" style="left:15%;top:45%"></span>
+<span class="star" style="left:65%;top:55%"></span>
 
-    </div>
+</div>
 
 
-    <!-- SPIDER WEB -->
+<!-- =====================================================
+     FLOATING HEART CONTAINER
+===================================================== -->
 
-    <div class="web">
+<div id="heartContainer"></div>
 
-        <div class="web-circle"></div>
-        <div class="web-circle"></div>
-        <div class="web-circle"></div>
-        <div class="web-circle"></div>
 
-        <div class="web-line"></div>
-        <div class="web-line"></div>
-        <div class="web-line"></div>
-        <div class="web-line"></div>
-        <div class="web-line"></div>
-        <div class="web-line"></div>
+<!-- =====================================================
+     SCENE 1 — PASSWORD
+===================================================== -->
 
-    </div>
+<section class="scene" id="lockScene">
 
+<div class="web">
 
-    <!-- FLOATING HEARTS -->
+<div class="webCircle"></div>
+<div class="webCircle"></div>
+<div class="webCircle"></div>
+<div class="webCircle"></div>
 
-    <div id="heartContainer"></div>
+<div class="webLine"></div>
+<div class="webLine"></div>
+<div class="webLine"></div>
+<div class="webLine"></div>
+<div class="webLine"></div>
+<div class="webLine"></div>
 
+</div>
 
-    <!-- MAIN SCREEN -->
 
-    <main class="screen" id="mainScreen">
+<div class="container">
 
-        <div class="content" id="content">
+<div class="smallTitle">
+A little surprise awaits
+</div>
 
-            <div class="small-text">
-                A little surprise awaits
-            </div>
+<div class="bigHeart">
+❤️
+</div>
 
+<h1 class="mainTitle">
+Hey, Vivek...
+</h1>
 
-            <div class="heart"></div>
+<p class="subtitle">
+Someone has prepared something
+especially for you.
+</p>
 
+<p class="smallTitle">
+Enter the secret code
+</p>
 
-            <h1 class="title">
-                Hey, Vivek...
-            </h1>
+<input
+id="codeInput"
+class="codeInput"
+type="password"
+maxlength="4"
+inputmode="numeric"
+placeholder="••••"
+>
 
+<div id="error" class="error">
+That's not it... try again ❤️
+</div>
 
-            <p class="subtitle">
-                Someone has prepared something<br>
-                especially for you.
-            </p>
+<button
+class="unlockButton"
+onclick="unlock()"
+>
+🔓 UNLOCK
+</button>
 
+<p class="hint">
+Hint: It's something special to us...
+</p>
 
-            <div class="instruction">
-                Enter the secret code
-            </div>
+</div>
 
+</section>
 
-            <input
-                type="password"
-                id="code"
-                class="code-input"
-                maxlength="4"
-                inputmode="numeric"
-                placeholder="••••"
-                autocomplete="off"
-            >
 
+<!-- =====================================================
+     SCENE 2 — CINEMATIC INTRO
+===================================================== -->
 
-            <div
-                id="error"
-                class="error"
-            >
-                That's not it... try again ❤️
-            </div>
+<section class="scene hidden" id="introScene">
 
+<div class="web">
 
-            <button
-                class="unlock-btn"
-                onclick="unlock()"
-            >
-                🔓 &nbsp; UNLOCK
-            </button>
+<div class="webCircle"></div>
+<div class="webCircle"></div>
+<div class="webCircle"></div>
+<div class="webCircle"></div>
 
+<div class="webLine"></div>
+<div class="webLine"></div>
+<div class="webLine"></div>
+<div class="webLine"></div>
+<div class="webLine"></div>
+<div class="webLine"></div>
 
-            <div class="hint">
-                Hint: It's something special to us...
-            </div>
+</div>
 
-        </div>
+<div class="container introText">
 
-    </main>
+<div class="glowingHeart">
+❤️
+</div>
 
+<h2>
+You made it, Vivek.
+</h2>
 
-    <!-- SUCCESS SCREEN -->
+<p class="subtitle">
+But this is only the beginning...
+</p>
 
-    <section
-        class="success"
-        id="success"
-    >
+<button
+class="nextButton"
+onclick="showScene('birthdayScene')"
+>
+ENTER MY LITTLE WORLD →
+</button>
 
-        <div class="success-content">
+</div>
 
-            <div class="success-heart">
-                ❤️
-            </div>
+</section>
 
-            <div class="success-title">
-                ACCESS GRANTED
-            </div>
 
-            <div class="success-text">
-                Welcome, Vivek...
-                <br><br>
-                Your surprise is about to begin.
-            </div>
+<!-- =====================================================
+     SCENE 3 — BIRTHDAY
+===================================================== -->
 
-        </div>
+<section class="scene hidden" id="birthdayScene">
 
-    </section>
+<div class="container">
 
+<p class="birthdayText">
+Today is a very special day
+</p>
 
-    <script>
+<div class="bigHeart">
+❤️
+</div>
 
-        /* =========================
-           CHANGE YOUR PASSWORD HERE
-        ========================== */
+<h1>
+HAPPY<br>
+<span class="vivekName">BIRTHDAY</span>
+</h1>
 
-        const SECRET_CODE = "0911";
+<h2>
+VIVEK ❤️
+</h2>
 
+<p class="subtitle">
+Because someone as special as you
+deserves more than just a birthday wish.
+</p>
 
-        /* =========================
-           CREATE FLOATING HEARTS
-        ========================== */
+<button
+class="nextButton"
+onclick="showScene('memoryScene')"
+>
+OUR MEMORIES 📸
+</button>
 
-        const heartContainer =
-            document.getElementById("heartContainer");
+</div>
 
+</section>
 
-        function createHeart() {
 
-            const heart =
-                document.createElement("div");
+<!-- =====================================================
+     SCENE 4 — MEMORIES
+===================================================== -->
 
-            heart.className =
-                "floating-heart";
+<section class="scene hidden" id="memoryScene">
 
-            heart.innerHTML =
-                Math.random() > .5 ? "♥" : "♡";
+<div class="container">
 
-            heart.style.left =
-                Math.random() * 100 + "%";
+<h2>
+Our Little Memories ❤️
+</h2>
 
-            heart.style.animationDuration =
-                (8 + Math.random() * 8) + "s";
+<p class="subtitle">
+A few moments that mean a lot to me.
+</p>
 
-            heart.style.animationDelay =
-                Math.random() * 5 + "s";
 
-            heart.style.fontSize =
-                (10 + Math.random() * 15) + "px";
+<div class="memoryGrid">
 
-            heartContainer.appendChild(heart);
+<!-- CHANGE YOUR IMAGE FILENAMES HERE -->
 
+<div class="photoCard">
 
-            setTimeout(() => {
+<img src="images/memory1.jpg"
+onerror="this.src='https://via.placeholder.com/400x400/19101a/ffffff?text=Your+Photo+1'">
 
-                heart.remove();
+<div class="photoCaption">
+One of my favourite memories ❤️
+</div>
 
-            }, 18000);
+</div>
 
-        }
 
+<div class="photoCard">
 
-        setInterval(createHeart, 900);
+<img src="images/memory2.jpg"
+onerror="this.src='https://via.placeholder.com/400x400/19101a/ffffff?text=Your+Photo+2'">
 
+<div class="photoCaption">
+A moment I'll always remember.
+</div>
 
-        /* =========================
-           UNLOCK FUNCTION
-        ========================== */
+</div>
 
-        function unlock() {
 
-            const input =
-                document.getElementById("code");
+<div class="photoCard">
 
-            const error =
-                document.getElementById("error");
+<img src="images/memory3.jpg"
+onerror="this.src='https://via.placeholder.com/400x400/19101a/ffffff?text=Your+Photo+3'">
 
-            const content =
-                document.getElementById("content");
+<div class="photoCaption">
+Another little memory of us ❤️
+</div>
 
-            const success =
-                document.getElementById("success");
+</div>
 
+</div>
 
-            const enteredCode =
-                input.value.trim();
 
+<button
+class="nextButton"
+onclick="showScene('letterScene')"
+>
+I HAVE SOMETHING TO TELL YOU 💌
+</button>
 
-            /* WRONG PASSWORD */
+</div>
 
-            if (enteredCode !== SECRET_CODE) {
+</section>
 
-                error.classList.add("show");
 
-                input.classList.remove("shake");
+<!-- =====================================================
+     SCENE 5 — LETTER
+===================================================== -->
 
-                void input.offsetWidth;
+<section class="scene hidden" id="letterScene">
 
-                input.classList.add("shake");
+<div class="container">
 
-                input.value = "";
+<h2>
+A Letter For You 💌
+</h2>
 
-                setTimeout(() => {
+<p class="subtitle">
+There's something I wanted you to read today.
+</p>
 
-                    error.classList.remove("show");
 
-                }, 2500);
+<div
+class="envelope"
+onclick="openLetter()"
+>
 
-                return;
-            }
+<span>
+💌
+</span>
 
+</div>
 
-            /* CORRECT PASSWORD */
 
+<p id="envelopeText">
+Click the envelope ❤️
+</p>
+
+
+<div
+id="letter"
+class="letter hidden"
+>
+
+<p>
+
+Dear Vivek,
+
+<br><br>
+
+Happy Birthday ❤️
+
+<br><br>
+
+I wanted to create something special for you
+instead of simply sending a birthday message.
+
+Every little memory, every laugh and every
+moment we've shared has a special place in my heart.
+
+<br><br>
+
+I hope this little surprise makes you smile
+the way you have made me smile so many times.
+
+<br><br>
+
+No matter where life takes us,
+I'll always be grateful for the memories
+we've created together.
+
+<br><br>
+
+Happy Birthday once again, Vivek. ❤️
+
+<br><br>
+
+— From someone who cares about you a lot.
+
+</p>
+
+</div>
+
+
+<button
+id="letterNext"
+class="nextButton hidden"
+onclick="showScene('reasonsScene')"
+>
+THERE'S MORE ❤️
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SCENE 6 — REASONS
+===================================================== -->
+
+<section class="scene hidden" id="reasonsScene">
+
+<div class="container">
+
+<h2>
+Why You're Special ❤️
+</h2>
+
+<p class="subtitle">
+Just a few of the many things I appreciate about you.
+</p>
+
+
+<div class="reasons">
+
+<div class="reason">
+<div class="reasonIcon">😊</div>
+Your smile
+</div>
+
+<div class="reason">
+<div class="reasonIcon">😂</div>
+Your craziness
+</div>
+
+<div class="reason">
+<div class="reasonIcon">🫶</div>
+The way you make me laugh
+</div>
+
+<div class="reason">
+<div class="reasonIcon">✨</div>
+The little things you do
+</div>
+
+<div class="reason">
+<div class="reasonIcon">📸</div>
+Our memories
+</div>
+
+<div class="reason">
+<div class="reasonIcon">❤️</div>
+Simply being you
+</div>
+
+</div>
+
+
+<button
+class="nextButton"
+onclick="showScene('gameScene')"
+>
+ONE LITTLE GAME 🎈
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SCENE 7 — BALLOON GAME
+===================================================== -->
+
+<section class="scene hidden" id="gameScene">
+
+<div class="container">
+
+<h2>
+Find the Hidden Messages 🎈
+</h2>
+
+<p class="subtitle">
+Click the balloons and discover what they're hiding.
+</p>
+
+
+<div class="balloonArea">
+
+<div
+class="balloon"
+style="left:10%;top:40px"
+onclick="popBalloon(this,'You are seriously special ❤️')"
+>
+🎈
+</div>
+
+
+<div
+class="balloon"
+style="left:40%;top:150px"
+onclick="popBalloon(this,'You make ordinary moments memorable ✨')"
+>
+🎈
+</div>
+
+
+<div
+class="balloon"
+style="left:75%;top:50px"
+onclick="popBalloon(this,'Okay... you are also slightly annoying 😂')"
+>
+🎈
+</div>
+
+
+<div
+class="balloon"
+style="left:25%;top:250px"
+onclick="popBalloon(this,'But I still like you a lot ❤️')"
+>
+🎈
+</div>
+
+
+<div
+class="balloon"
+style="left:65%;top:260px"
+onclick="popBalloon(this,'Happy Birthday, Vivek! 🎂')"
+>
+🎈
+</div>
+
+</div>
+
+
+<div
+id="hiddenMessage"
+class="hiddenMessage"
+>
+</div>
+
+
+<button
+id="gameNext"
+class="nextButton hidden"
+onclick="showScene('cakeScene')"
+>
+UNLOCK THE CAKE 🎂
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SCENE 8 — CAKE
+===================================================== -->
+
+<section class="scene hidden" id="cakeScene">
+
+<div class="container">
+
+<h2>
+Make A Wish ✨
+</h2>
+
+<p class="subtitle">
+Close your eyes and make a wish...
+</p>
+
+
+<div class="cake">
+
+<div class="cakeBottom"></div>
+
+<div class="cakeTop"></div>
+
+<div class="candle">
+<div class="flame"></div>
+</div>
+
+<div class="candle">
+<div class="flame"></div>
+</div>
+
+<div class="candle">
+<div class="flame"></div>
+</div>
+
+</div>
+
+
+<button
+class="nextButton"
+onclick="makeWish()"
+>
+MAKE A WISH ✨
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SCENE 9 — FINAL
+===================================================== -->
+
+<section class="scene hidden" id="finalScene">
+
+<div class="container">
+
+<div class="finalHeart">
+❤️
+</div>
+
+<h2>
+One Last Thing...
+</h2>
+
+<p class="finalMessage">
+
+Vivek,
+
+<br><br>
+
+I made this little world for you because
+a simple "Happy Birthday" didn't feel enough.
+
+Every memory, every laugh and every little moment
+has its own place in my heart.
+
+<br><br>
+
+I hope this surprise makes you smile.
+
+<br><br>
+
+<strong>
+Happy Birthday, Vivek. ❤️
+</strong>
+
+<br><br>
+
+May this year bring you everything
+you've been wishing for.
+
+</p>
+
+
+<h2>
+❤️
+</h2>
+
+<p>
+Thank you for being you.
+</p>
+
+</div>
+
+</section>
+
+
+<script>
+
+
+/* =====================================================
+   YOUR SECRET CODE
+===================================================== */
+
+const SECRET_CODE = "0911";
+
+
+/* =====================================================
+   SCENE SWITCHING
+===================================================== */
+
+function showScene(id){
+
+    const scenes =
+    document.querySelectorAll(".scene");
+
+    scenes.forEach(scene=>{
+        scene.classList.add("hidden");
+    });
+
+    const selected =
+    document.getElementById(id);
+
+    selected.classList.remove("hidden");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   PASSWORD
+===================================================== */
+
+function unlock(){
+
+    const input =
+    document.getElementById("codeInput");
+
+    const error =
+    document.getElementById("error");
+
+    if(input.value !== SECRET_CODE){
+
+        error.classList.add("show");
+
+        input.classList.remove("shake");
+
+        void input.offsetWidth;
+
+        input.classList.add("shake");
+
+        input.value="";
+
+        setTimeout(()=>{
             error.classList.remove("show");
+        },2500);
 
-            createHeartBurst();
-
-            document.getElementById("mainScreen")
-                .style.opacity = "0";
-
-            document.getElementById("mainScreen")
-                .style.transform = "scale(1.08)";
+        return;
+    }
 
 
-            setTimeout(() => {
+    /* CORRECT */
 
-                success.classList.add("active");
+    createHeartBurst();
 
-            }, 700);
+    setTimeout(()=>{
 
+        showScene("introScene");
 
-            /*
-                Later we will connect this
-                to the actual birthday page.
-            */
+    },1000);
 
-        }
+}
 
 
-        /* =========================
-           HEART BURST
-        ========================== */
+/* =====================================================
+   ENTER KEY FOR PASSWORD
+===================================================== */
 
-        function createHeartBurst() {
+document
+.getElementById("codeInput")
+.addEventListener("keydown",function(event){
 
-            const hearts = 28;
+    if(event.key==="Enter"){
+        unlock();
+    }
 
-            for (let i = 0; i < hearts; i++) {
-
-                const heart =
-                    document.createElement("div");
-
-                heart.className =
-                    "burst-heart";
-
-                heart.innerHTML =
-                    Math.random() > .5
-                    ? "❤️"
-                    : "♡";
+});
 
 
-                const angle =
-                    (Math.PI * 2 / hearts) * i;
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+function createFloatingHeart(){
+
+    const heart =
+    document.createElement("div");
+
+    heart.className =
+    "floatingHeart";
+
+    heart.innerHTML =
+    Math.random()>.5
+    ?"❤️"
+    :"♡";
+
+    heart.style.left =
+    Math.random()*100+"%";
+
+    heart.style.fontSize =
+    (10+Math.random()*20)+"px";
+
+    heart.style.animationDuration =
+    (7+Math.random()*7)+"s";
+
+    document
+    .getElementById("heartContainer")
+    .appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },15000);
+
+}
+
+setInterval(createFloatingHeart,800);
 
 
-                const distance =
-                    150 + Math.random() * 250;
+/* =====================================================
+   HEART BURST
+===================================================== */
 
+function createHeartBurst(){
 
-                heart.style.setProperty(
-                    "--x",
-                    Math.cos(angle) * distance + "px"
-                );
+    for(let i=0;i<30;i++){
 
+        const heart =
+        document.createElement("div");
 
-                heart.style.setProperty(
-                    "--y",
-                    Math.sin(angle) * distance + "px"
-                );
+        heart.innerHTML="❤️";
 
+        heart.style.position="fixed";
 
-                document.body.appendChild(heart);
+        heart.style.left="50%";
+        heart.style.top="50%";
 
+        heart.style.zIndex="100";
 
-                setTimeout(() => {
+        heart.style.fontSize=
+        (12+Math.random()*20)+"px";
 
-                    heart.remove();
+        const x =
+        (Math.random()-.5)*700;
 
-                }, 1600);
+        const y =
+        (Math.random()-.5)*700;
 
+        heart.animate([
+
+            {
+                transform:"translate(-50%,-50%) scale(.5)",
+                opacity:1
+            },
+
+            {
+                transform:
+                `translate(${x}px,${y}px) scale(1.5)`,
+                opacity:0
             }
 
-        }
+        ],{
+
+            duration:1400,
+            easing:"ease-out"
+
+        });
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },1500);
+
+    }
+
+}
 
 
-        /* =========================
-           ENTER KEY
-        ========================== */
+/* =====================================================
+   LETTER
+===================================================== */
+
+function openLetter(){
+
+    document
+    .getElementById("letter")
+    .classList.remove("hidden");
+
+    document
+    .getElementById("envelopeText")
+    .innerHTML="❤️";
+
+    document
+    .getElementById("letterNext")
+    .classList.remove("hidden");
+
+}
+
+
+/* =====================================================
+   BALLOON GAME
+===================================================== */
+
+let balloonsPopped=0;
+
+function popBalloon(balloon,message){
+
+    if(balloon.classList.contains("popped")){
+        return;
+    }
+
+    balloon.classList.add("popped");
+
+    balloonsPopped++;
+
+    document
+    .getElementById("hiddenMessage")
+    .innerHTML=message;
+
+    createHeartBurst();
+
+    if(balloonsPopped>=5){
 
         document
-            .getElementById("code")
-            .addEventListener(
-                "keydown",
-                function(event) {
+        .getElementById("gameNext")
+        .classList.remove("hidden");
 
-                    if (event.key === "Enter") {
+    }
 
-                        unlock();
+}
 
-                    }
 
-                }
-            );
+/* =====================================================
+   CAKE / WISH
+===================================================== */
 
-    </script>
+function makeWish(){
+
+    const flames =
+    document.querySelectorAll(".flame");
+
+    flames.forEach(flame=>{
+        flame.style.display="none";
+    });
+
+    createConfetti();
+
+    setTimeout(()=>{
+
+        showScene("finalScene");
+
+    },2500);
+
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+function createConfetti(){
+
+    for(let i=0;i<120;i++){
+
+        const piece =
+        document.createElement("div");
+
+        piece.className="confetti";
+
+        piece.style.left=
+        Math.random()*100+"%";
+
+        piece.style.background=
+        ["#ff477e","#ffb3c7","#ffffff","#9b7cff","#ffd166"]
+        [Math.floor(Math.random()*5)];
+
+        piece.style.animationDuration=
+        (2+Math.random()*3)+"s";
+
+        piece.style.animationDelay=
+        Math.random()*1.5+"s";
+
+        document.body.appendChild(piece);
+
+        setTimeout(()=>{
+            piece.remove();
+        },5000);
+
+    }
+
+}
+
+
+</script>
 
 </body>
 </html>
