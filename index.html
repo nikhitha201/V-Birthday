@@ -948,6 +948,96 @@ p{
     }
 
 }
+   /* =========================================
+   SPIDER-MAN CINEMATIC ANIMATION
+========================================= */
+
+.spidermanImage {
+    position: absolute;
+
+    width: 230px;
+    height: auto;
+
+    top: -300px;
+    left: 50%;
+
+    z-index: 20;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 0 15px rgba(255,255,255,.5));
+
+    animation: spidermanSwing 4.5s ease-in-out forwards;
+}
+
+
+/* Spider-Man swings across the screen */
+
+@keyframes spidermanSwing {
+
+    0% {
+        top: -300px;
+        left: 50%;
+
+        transform:
+            translateX(-50%)
+            rotate(-15deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    25% {
+        top: 12%;
+        left: 35%;
+
+        transform:
+            translateX(-50%)
+            rotate(15deg);
+    }
+
+    45% {
+        top: 30%;
+        left: 68%;
+
+        transform:
+            translateX(-50%)
+            rotate(-15deg);
+    }
+
+    65% {
+        top: 48%;
+        left: 30%;
+
+        transform:
+            translateX(-50%)
+            rotate(12deg);
+    }
+
+    82% {
+        top: 62%;
+        left: 60%;
+
+        transform:
+            translateX(-50%)
+            rotate(-8deg);
+    }
+
+    100% {
+        top: 72%;
+        left: 50%;
+
+        transform:
+            translateX(-50%)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+}
 </style>
 
 </head>
@@ -1062,6 +1152,11 @@ Hint: It's something special to us...
 ===================================================== -->
 
 <section class="scene hidden" id="introScene">
+   <img 
+    src="images/spidey.jpg"
+    class="spidermanImage"
+    alt="Spider-Man"
+>
    <!-- SPIDER WEB SWINGING EFFECT -->
 
 <div class="swingScene">
