@@ -712,7 +712,242 @@ p{
     }
 
 }
+/* =====================================================
+   SPIDER-MAN STYLE SWINGING ANIMATION
+===================================================== */
 
+.swingScene{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:10;
+}
+
+
+/* Web hanging from the top */
+
+.swingWeb{
+    position:absolute;
+
+    width:2px;
+    height:65vh;
+
+    background:rgba(255,255,255,.8);
+
+    top:-65vh;
+    left:50%;
+
+    transform-origin:top center;
+
+    animation:
+        webDrop 1s ease-out forwards,
+        webSwing 2.5s 1s ease-in-out forwards;
+}
+
+
+/* Spider symbol */
+
+.superhero{
+    position:absolute;
+
+    top:58vh;
+    left:50%;
+
+    font-size:65px;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(0deg);
+
+    filter:
+        drop-shadow(0 0 15px rgba(255,255,255,.7));
+
+    animation:
+        heroSwing 2.5s 1s ease-in-out forwards;
+
+}
+
+
+/* Web dropping down */
+
+@keyframes webDrop{
+
+    from{
+        height:0;
+        top:0;
+    }
+
+    to{
+        height:65vh;
+        top:0;
+    }
+
+}
+
+
+/* Web swinging */
+
+@keyframes webSwing{
+
+    0%{
+        transform:rotate(0deg);
+    }
+
+    25%{
+        transform:rotate(12deg);
+    }
+
+    50%{
+        transform:rotate(-12deg);
+    }
+
+    75%{
+        transform:rotate(8deg);
+    }
+
+    100%{
+        transform:rotate(0deg);
+    }
+
+}
+
+
+/* Spider swinging */
+
+@keyframes heroSwing{
+
+    0%{
+        transform:
+            translate(-50%,-50%)
+            rotate(0deg);
+    }
+
+    25%{
+        transform:
+            translate(-50%,-50%)
+            rotate(18deg);
+    }
+
+    50%{
+        transform:
+            translate(-50%,-50%)
+            rotate(-18deg);
+    }
+
+    75%{
+        transform:
+            translate(-50%,-50%)
+            rotate(12deg);
+    }
+
+    100%{
+        transform:
+            translate(-50%,-50%)
+            rotate(0deg);
+    }
+
+}
+
+
+/* Hide animation after it finishes */
+
+.swingScene{
+    animation:
+        swingDisappear 1s 4s forwards;
+}
+
+@keyframes swingDisappear{
+
+    to{
+        opacity:0;
+    }
+
+}
+   .heroBody{
+    font-size:65px;
+
+    animation:
+        heroPulse .8s infinite alternate;
+}
+
+@keyframes heroPulse{
+
+    from{
+        filter:
+            drop-shadow(0 0 5px white);
+    }
+
+    to{
+        filter:
+            drop-shadow(0 0 25px white);
+    }
+
+}
+   /* =====================================================
+   WEB SHOTS
+===================================================== */
+
+.webShot{
+    position:absolute;
+
+    width:120px;
+    height:2px;
+
+    background:white;
+
+    opacity:0;
+
+    transform-origin:left center;
+
+    animation:webShotAppear 1s 1.5s forwards;
+}
+
+.webShot1{
+    top:35%;
+    left:15%;
+    transform:rotate(25deg);
+}
+
+.webShot2{
+    top:45%;
+    right:15%;
+    transform:rotate(-25deg);
+}
+
+.webShot3{
+    top:65%;
+    left:25%;
+    transform:rotate(-15deg);
+}
+
+@keyframes webShot{
+
+    from{
+        width:0;
+        opacity:0;
+    }
+
+    to{
+        width:120px;
+        opacity:.7;
+    }
+
+}
+
+@keyframes webShotAppear{
+
+    from{
+        width:0;
+        opacity:0;
+    }
+
+    to{
+        width:120px;
+        opacity:.7;
+    }
+
+}
 </style>
 
 </head>
@@ -827,6 +1062,32 @@ Hint: It's something special to us...
 ===================================================== -->
 
 <section class="scene hidden" id="introScene">
+   <!-- SPIDER WEB SWINGING EFFECT -->
+
+<div class="swingScene">
+
+    <div class="webShot webShot1"></div>
+
+    <div class="webShot webShot2"></div>
+
+    <div class="webShot webShot3"></div>
+
+    <div class="swingWeb"></div>
+
+    <div class="superhero">
+
+        <div class="heroBody">
+            <img
+    src="images/spiderman.png"
+    class="spidermanImage"
+>
+        </div>
+
+    
+
+</div>
+
+</div>
 
 <div class="web">
 
@@ -1024,16 +1285,18 @@ class="letter hidden"
 
 <p>
 
-Dear Vivek,
+Oye picchi,
 
 <br><br>
 
-Happy Birthday ❤️
+Happy Birthday ❤️..... 
 
 <br><br>
 
-I wanted to create something special for you
-instead of simply sending a birthday message.
+I don't even know where to start, Nv na life loki ravadam nijanga na adrushtam ra..Nv natho matladina kasepatike nv na life lo eptki undali abpinchindi.
+   Days gadiche koddhi na bestfriend aipoyav ..literally each and everything share cheskunnam...and the day cameeeeeeee
+   where  we fell in love with each other,starting lo nv love chesav annaka ninnu chala duram petta ,badhapetta i'm so sorry for that bangaram.
+Manam ippudu forever...anthe muaaaaah ...iloveyou so much
 
 Every little memory, every laugh and every
 moment we've shared has a special place in my heart.
@@ -1051,7 +1314,7 @@ we've created together.
 
 <br><br>
 
-Happy Birthday once again, Vivek. ❤️
+Happy Birthday once again, my Love. ❤️
 
 <br><br>
 
@@ -1197,7 +1460,7 @@ onclick="popBalloon(this,'But I still like you a lot ❤️')"
 <div
 class="balloon"
 style="left:65%;top:260px"
-onclick="popBalloon(this,'Happy Birthday, Vivek! 🎂')"
+onclick="popBalloon(this,'Happy Birthday, my Love! 🎂')"
 >
 🎈
 </div>
